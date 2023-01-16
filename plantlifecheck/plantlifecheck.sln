@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.809.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plantlifecheck", "plantlifecheck.csproj", "{ED4BEB4F-D6F8-48B5-978D-08B872546AAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED4BEB4F-D6F8-48B5-978D-08B872546AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED4BEB4F-D6F8-48B5-978D-08B872546AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED4BEB4F-D6F8-48B5-978D-08B872546AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED4BEB4F-D6F8-48B5-978D-08B872546AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52E12F72-DEF6-4173-BE54-93FEA09F5967}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,137 @@
+﻿@model plantlifecheck.Models.ControlloVita
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ControlloVita</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Abilitato)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Abilitato)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descrizione)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Partenza)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Partenza)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fermata)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fermata)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SP_Consuntivo_Abilitato)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SP_Consuntivo_Abilitato)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SP_Consuntivo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SP_Consuntivo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Consuntivo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Consuntivo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ultimo_aggiornamento_Consuntivo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ultimo_aggiornamento_Consuntivo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.preallarme_enable)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.preallarme_enable)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.preallarme_testo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.preallarme_testo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.preallarme_soglia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.preallarme_soglia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.preallarme_data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.preallarme_data)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.allarme_enable)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.allarme_enable)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.allarme_testo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.allarme_testo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.allarme_soglia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.allarme_soglia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.allarme_data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.allarme_data)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UltimaModifica)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UltimaModifica)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Utente)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Utente.Email)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="RowVersion" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index" asp-route-id_componente="@Model.Componente.Id">Back to List</a>
+    </form>
+</div>

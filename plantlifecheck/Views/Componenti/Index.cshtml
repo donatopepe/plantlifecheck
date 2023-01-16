@@ -1,0 +1,61 @@
+﻿@model IEnumerable<plantlifecheck.Models.Componente>
+
+@{
+    ViewData["Title"] = "Componenti";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Componenti</h1>
+
+<p>
+    <a asp-action="Create" asp-route-id_macchina=@ViewBag.id_macchina>Create New</a>
+</p>
+@Html.ValidationSummary(true)
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Decrizione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UltimaModifica)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole(item.Macchina.Nome.Name))
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Index" asp-controller="ControlloVite" asp-route-id_componente="@item.Id">
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Decrizione)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UltimaModifica)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        @if (ReadWrite.isEnable(item.Macchina.Nome.Name, User))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" asp-route-id_macchina=@ViewBag.id_macchina>Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" asp-route-id_macchina=@ViewBag.id_macchina>Delete</a>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="Index" asp-controller="Macchine"  asp-route-id_impianto="@ViewBag.id_impianto">Back to List</a>
+</div>

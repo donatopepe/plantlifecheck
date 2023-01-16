@@ -1,0 +1,98 @@
+﻿@model RoleEdit
+@{ var i = 0; }
+
+<h2 class="bg-info text-white">Aggiornamento Ruolo</h2>
+<a asp-action="Index" class="btn btn-secondary">Back</a>
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<h3 class="bg-info p-1 text-white">Ruolo @Model.Role.Name</h3>
+
+<table class="table table-bordered table-sm">
+    <tr>
+        <th>Utente</th>
+        <th>Abiltato al ruolo</th>
+        <th>Permessi Read-Write</th>
+    </tr>
+
+    @foreach (RoleUser roleuser in Model.Users)
+    {
+        <tr>
+            <td>@roleuser.User.UserName</td>
+            <td>
+                <input type="checkbox" id="@(i++)" name="IsInRole" asp-for="@roleuser.IsInRole" onclick="change(this.id, this.name, '@roleuser.User.Id')">
+            </td>
+            <td>
+                <input type="checkbox" id="@(i++)" name="ReadWrite" asp-for="@roleuser.ReadWrite" onclick="change(this.id, this.name, '@roleuser.User.Id')">
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<script type="text/javascript">
+
+        function gettoken() {
+        var token = '@Html.AntiForgeryToken()';
+        token = $(token).val();
+        return token;
+    }
+
+    $(document).ready(function () {
+
+    });
+
+    function change(clicked_id, click_name, UserId ) {
+        var id = ('#' + clicked_id).toString();
+        var IsInRole = "";
+        var ReadWrite = "";
+
+        if (click_name == "IsInRole") {
+            if ($(id).prop('checked') == true) {  // set the value of the checked by id
+                IsInRole = "true";
+            }
+            else {
+                IsInRole = "false";
+            }
+        }
+        if (click_name == "ReadWrite")
+        {
+            if ($(id).prop('checked') == true) {  // set the value of the checked by id
+
+
+                ReadWrite = "true";
+            }
+            else {
+                ReadWrite = "false";
+            }
+        }
+
+        var data = {
+            RoleId: "@Model.Role.Id",
+            UserId: UserId,
+            IsInRole: IsInRole,
+            ReadWrite: ReadWrite
+        };
+
+        console.log(data);
+        $.ajax({
+                url: "@Url.Action("UpdateOnChange")",
+                type: "POST",
+                //dataType: "text",
+                data: data,
+            success: function (response) {
+                console.log(response.toString());
+                //window.location.reload();
+                window.location.href = response;
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                   if (jqXHR.status == 500) {
+                       alert('Internal error: ' + jqXHR.responseText);
+                   } else {
+                       alert('Unexpected error.' + jqXHR.status);
+                    }
+                    window.location.reload();
+                }
+            });
+    }
+</script>

@@ -1,0 +1,95 @@
+{
+  "SqlConfigs": {
+    "Configs": [
+      {
+        "ConnectionString": "Server=[REDACTED];Database=[REDACTED];User Id=[REDACTED];$1=[REDACTED];",
+        "Queries": [
+          {
+            "Name": "ProduzioneTna2Aspi1",
+            "Sql": "spCoilCodeWeightGetSum",
+            "DataInizio": "@pSearchDate",
+            "DataFine": "@pSearchDateTo",
+            "ParametersList": [
+              {
+                "Parameter": "@pCoiler",
+                "Value": "1"
+              }
+            ],
+            "Transaction": "false",
+            "CommandType": "StoredProcedure",
+            "ReturnType": "Dictionary",
+            "Returns": [
+              {
+                "DataInizio": "Data inizio",
+                "DataFine": "Data fine",
+                "Consuntivo": "Calcolato QS"
+              }
+            ]
+          },
+          {
+            "Name": "ProduzioneTna2Aspi2",
+            "Sql": "spCoilCodeWeightGetSum",
+            "DataInizio": "@pSearchDate",
+            "DataFine": "@pSearchDateTo",
+            "ParametersList": [
+              {
+                "Parameter": "@pCoiler",
+                "Value": "2"
+              }
+            ],
+            "Transaction": "false",
+            "CommandType": "StoredProcedure",
+            "ReturnType": "Dictionary",
+            "Returns": [
+              {
+                "DataInizio": "Data inizio",
+                "DataFine": "Data fine",
+                "Consuntivo": "Calcolato QS"
+              }
+            ]
+          },
+          {
+            "Name": "ProduzioneTna2Aspi3",
+            "Sql": "spCoilCodeWeightGetSum",
+            "DataInizio": "@pSearchDate",
+            "DataFine": "@pSearchDateTo",
+            "ParametersList": [
+              {
+                "Parameter": "@pCoiler",
+                "Value": "3"
+              }
+            ],
+            "Transaction": "false",
+            "CommandType": "StoredProcedure",
+            "ReturnType": "Dictionary",
+            "Returns": [
+              {
+                "DataInizio": "Data inizio",
+                "DataFine": "Data fine",
+                "Consuntivo": "Calcolato QS"
+              }
+            ]
+          },
+          {
+            "Name": "ProduzioneTna2",
+            "Sql": "spCoilCodeWeightGetSum",
+            "DataInizio": "@pSearchDate",
+            "DataFine": "@pSearchDateTo",
+            "ParametersList": [],
+            "Transaction": "false",
+            "CommandType": "StoredProcedure",
+            "ReturnType": "Dictionary",
+            "Returns": [
+              {
+                "DataInizio": "Data inizio",
+                "DataFine": "Data fine",
+                "Consuntivo": "Calcolato QS"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+
+  }
+}

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<plantlifecheck.Models.Impianto>
+
+@{
+    ViewData["Title"] = "Impianti";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Impianti</h1>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+    {
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    }
+}
+@Html.ValidationSummary(true)
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Decrizione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UltimaModifica)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (User.IsInRole("Admin") || User.IsInRole("Manager")|| User.IsInRole(item.Nome.Name))
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Index" asp-controller="Macchine" asp-route-id_impianto="@item.Id">
+                            @Html.DisplayFor(modelItem => item.Nome.Name)
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Decrizione)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UltimaModifica)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        @if (ReadWrite.isEnable(item.Nome.Name, User))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+</table>

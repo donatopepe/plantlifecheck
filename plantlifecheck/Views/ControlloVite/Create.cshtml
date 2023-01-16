@@ -1,0 +1,96 @@
+﻿@model plantlifecheck.Models.ControlloVita
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var id_componente = ViewBag.id_componente;
+}
+
+<h1>Create</h1>
+
+<h4>ControlloVita</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group form-check">
+                <input type="hidden" name="id_componente" value="@id_componente" class="form-control" />
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Abilitato" /> @Html.DisplayNameFor(model => model.Abilitato)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descrizione" class="control-label"></label>
+                <input asp-for="Descrizione" class="form-control" />
+                <span asp-validation-for="Descrizione" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Partenza" class="control-label"></label>
+                <input asp-for="Partenza" class="form-control" />
+                <span asp-validation-for="Partenza" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fermata" class="control-label"></label>
+                <input asp-for="Fermata" class="form-control" />
+                <span asp-validation-for="Fermata" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="SP_Consuntivo_Abilitato" /> @Html.DisplayNameFor(model => model.SP_Consuntivo_Abilitato)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="SP_Consuntivo" class="control-label"></label>
+                @Html.DropDownList("SP_Consuntivo", (IEnumerable<SelectListItem>)ViewBag.StoreProcedure, "-- Seleziona Store Procedure --", new { @class = "form-control" })
+                <span asp-validation-for="SP_Consuntivo" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="preallarme_enable" /> @Html.DisplayNameFor(model => model.preallarme_enable)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="preallarme_testo" class="control-label"></label>
+                <input asp-for="preallarme_testo" class="form-control" />
+                <span asp-validation-for="preallarme_testo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="preallarme_soglia" class="control-label"></label>
+                <input asp-for="preallarme_soglia" class="form-control" />
+                <span asp-validation-for="preallarme_soglia" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="allarme_enable" /> @Html.DisplayNameFor(model => model.allarme_enable)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="allarme_testo" class="control-label"></label>
+                <input asp-for="allarme_testo" class="form-control" />
+                <span asp-validation-for="allarme_testo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="allarme_soglia" class="control-label"></label>
+                <input asp-for="allarme_soglia" class="form-control" />
+                <span asp-validation-for="allarme_soglia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id_componente="@id_componente">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

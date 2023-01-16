@@ -1,0 +1,20 @@
+﻿@using plantlifecheck
+@using plantlifecheck.Models
+@using plantlifecheck.Controllers
+@using plantlifecheck.Data
+
+@using Microsoft.AspNetCore.Identity
+
+@using Areas.Identity
+@using Areas.Identity.Pages.Account;
+@using Areas.Controllers
+@using Areas.User
+@using Areas.TagHelpers
+@addTagHelper Areas.TagHelpers.*, PD_Library
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@inject AppVersionService AppVersionService
+@inject SignInManager<CustomUser> SignInManager
+@inject UserManager<CustomUser> UserManager
+@inject ReadWrite ReadWrite

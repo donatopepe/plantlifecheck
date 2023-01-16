@@ -1,0 +1,83 @@
+﻿@model IEnumerable<plantlifecheck.Models.ControlloVita>
+
+@{
+    ViewData["Title"] = "Controllo vite";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Controllo vite</h1>
+
+<p>
+    <a asp-action="Create" asp-route-id_componente=@ViewBag.id_componente>Create New</a>
+</p>
+@Html.ValidationSummary(true)
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Abilitato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descrizione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Partenza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fermata)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Consuntivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ultimo_aggiornamento_Consuntivo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole(item.Macchina.Nome.Name))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Abilitato)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descrizione)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Partenza)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fermata)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Consuntivo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ultimo_aggiornamento_Consuntivo)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        @if (ReadWrite.isEnable(item.Macchina.Nome.Name, User))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="Index" asp-controller="Componenti" asp-route-id_macchina="@ViewBag.id_macchina">Back to List</a>
+</div>
