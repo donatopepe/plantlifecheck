@@ -79,7 +79,7 @@ namespace plantlifecheck.Services
             _logger.LogInformation(jsonString);
 
             //var connectionStrings = new Dictionary<string, string>();
-            //connectionStrings.Add("DWH", "Server=[REDACTED];Database=[REDACTED];User Id=[REDACTED];$1=[REDACTED];");
+            //connectionStrings.Add("DWH", "");
             //var connections = new Connection(connectionStrings);
             //var parameters = new Dictionary<string, object>();
             //parameters.Add("@pSearchDate", DateTime.Today);
