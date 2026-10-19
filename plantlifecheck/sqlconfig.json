@@ -2,7 +2,7 @@
   "SqlConfigs": {
     "Configs": [
       {
-        "ConnectionString": "Server=[REDACTED];Database=[REDACTED];User Id=[REDACTED];$1=[REDACTED];",
+        "ConnectionString": "Server=[REDACTED];Database=[REDACTED];User Id=[REDACTED];SECRET_REMOVED;",
         "Queries": [
           {
             "Name": "ProduzioneTna2Aspi1",
