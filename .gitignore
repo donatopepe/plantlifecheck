@@ -29,3 +29,8 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+
+# Runtime logs are local data; do not publish
+**/logs/
+*.ndjson
+*.log
